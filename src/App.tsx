@@ -1,8 +1,13 @@
-export function App() {
+import { ThemeProvider } from "styled-components";
+import { Posts } from "./pages/Posts";
+import { GlobalStyle } from "./styles/global";
+import { defaultTheme } from "./styles/themes/default";
 
-  return (
-    <div>
-      Hello word
-    </div>
-  )
+export function App() {	
+	return (
+		<ThemeProvider theme={defaultTheme}>
+			<GlobalStyle />
+			<Posts />
+		</ThemeProvider>
+	);
 }
