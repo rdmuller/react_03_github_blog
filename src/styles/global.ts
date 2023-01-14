@@ -9,11 +9,16 @@ export const GlobalStyle = createGlobalStyle`
 
     body, input, text-area, button {
         font-family: nunito;
-        line-height: 1.6;
+        line-height: 1.3;
     }
 
     body {
         background-color: ${props => props.theme["base-background"]};
         color: ${props => props.theme["base-text"]};
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        color: ${props => props.theme["base-title"]};
     }
 `;

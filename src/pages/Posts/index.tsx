@@ -1,11 +1,11 @@
 import { Header } from "../../components/Header";
-import { Summary } from "../../components/Summary";
+import { GithubInfo } from "../../components/GithubInfo";
 
 export function Posts() {
 	return (
 		<div>
 			<Header />
-			<Summary />
+			<GithubInfo />
             Posts
 		</div>
 	);
