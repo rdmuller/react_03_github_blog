@@ -8,7 +8,7 @@ export const HeaderContainer = styled.header<HeaderContainerProps>`
     background-color: ${props => props.theme["base-profile"]};
     background-image: url(${props => props.backgroundImage});
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
     display: flex;
     align-items: flex-start;
     justify-content: center;

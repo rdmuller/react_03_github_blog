@@ -21,11 +21,22 @@ export const GithubInfoContainer = styled.section`
         height: 9.25rem;
         border-radius: 8px;
     }
+
+    h1 {
+        line-height: 1.3;
+    }
 `;
 
 export const GithubInfoTitleContent = styled.section`
     display: flex;
     justify-content: space-between;
+
+    a {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: flex-end;
+        align-items: center;
+    }
 `;
 
 export const GithubInfoDescription = styled.section`

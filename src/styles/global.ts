@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 
     body, input, text-area, button {
         font-family: nunito;
-        line-height: 1.3;
+        line-height: 1.6;
     }
 
     body {
@@ -20,5 +20,31 @@ export const GlobalStyle = createGlobalStyle`
     h1 {
         font-size: 1.5rem;
         color: ${props => props.theme["base-title"]};
+    }
+
+    h2 {
+        font-size: 1.25rem;
+        color: ${props => props.theme["base-title"]};
+    }
+
+    h3 {
+        font-size: 1.125rem;
+        color: ${props => props.theme["base-subtitle"]};
+    }
+
+    a {
+        font-weight: 700;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        color: ${props => props.theme.blue};
+        text-decoration: none;
+
+        border-color: ${props => props.theme.blue};
+        border-style: solid;
+        border-width: 0px 0px 0px 0px;
+
+        :hover {
+            border-width: 0px 0px 1px 0px;
+        }
     }
 `;

@@ -12,8 +12,7 @@ export function GithubInfo() {
 				<GithubInfoTitleContent>
 					<h1>Ronald Müller</h1>
 					<div>
-						<a href="">GITHUB</a>
-						<FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+						<a href="">GITHUB<FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
 					</div>
 				</GithubInfoTitleContent>
 				<GithubInfoDescription>
