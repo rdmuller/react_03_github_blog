@@ -47,4 +47,9 @@ export const GlobalStyle = createGlobalStyle`
             border-width: 0px 0px 1px 0px;
         }
     }
+
+    :focus {
+        outline: 0;
+        box-shadow: 0 0 0 2px ${props => props.theme.blue};
+    }
 `;

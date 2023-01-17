@@ -1,16 +1,22 @@
-import { Header } from "../../components/Header";
 import { GithubInfo } from "../../components/GithubInfo";
-import { PostsContainer } from "./styles";
+import { PostsContainer, PostsContent } from "./styles";
 import { SearchForm } from "./SearchForm";
+import { Card } from "../../components/Card";
 
 export function Posts() {
 	return (
 		<div>
-			<Header />
 			<GithubInfo />
 			<PostsContainer>
 				<SearchForm />
-				Posts
+				<PostsContent>
+					<Card />
+					<Card />
+					<Card />
+					<Card />
+					<Card />
+					<Card />
+				</PostsContent>
 			</PostsContainer>
 		</div>
 	);

@@ -1,13 +1,9 @@
 import styled from "styled-components";
 
 export const GithubInfoContainer = styled.section`
-    width: 100%;
-    max-width: 864px;
-    margin: 0 auto;
     display: flex;
     align-items: flex-start;
     gap: 2rem;
-    margin-top: -5.5rem;
     
     background-color: ${props => props.theme["base-profile"]};
     border-radius: 10px;
