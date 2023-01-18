@@ -17,10 +17,6 @@ export const GithubInfoContainer = styled.section`
         height: 9.25rem;
         border-radius: 8px;
     }
-
-    h1 {
-        line-height: 1.3;
-    }
 `;
 
 export const GithubInfoTitleContent = styled.section`

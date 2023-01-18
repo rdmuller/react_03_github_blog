@@ -19,7 +19,9 @@ export const GlobalStyle = createGlobalStyle`
 
     h1 {
         font-size: 1.5rem;
+        font-weight: 700;
         color: ${props => props.theme["base-title"]};
+        line-height: 1.3;
     }
 
     h2 {
