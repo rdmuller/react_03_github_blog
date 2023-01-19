@@ -12,6 +12,10 @@ export const GithubInfoContainer = styled.section`
     padding-right: 2rem;
     padding-bottom: 2rem;
 
+    > div {
+        flex: 1;
+    }
+
     img {
         width: 9.25rem;
         height: 9.25rem;
@@ -22,7 +26,7 @@ export const GithubInfoContainer = styled.section`
 export const GithubInfoTitleContent = styled.section`
     display: flex;
     justify-content: space-between;
-
+    
     a {
         display: flex;
         gap: 0.5rem;
