@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useCallback, useEffect, useState } from "react";
-import { gitUser } from "../config";
-import { apiGithubUsers } from "../lib/axios";
+import { __gitUser } from "../config";
+import { apiGithub } from "../lib/axios";
 
 interface GithubUser {
 	login: string;
@@ -25,12 +25,12 @@ export function GithubUserProvider({ children, }: GithubUserProviderProps) {
 	const [user, setUser] = useState<GithubUser>({} as GithubUser);
 
 	const fetchUser = useCallback(async (userLogin: string) => {
-		const response = await apiGithubUsers.get(userLogin, {});
+		const response = await apiGithub.get(`users/${userLogin}`, {});
 		setUser(response.data);
 	}, []);
 
 	useEffect(() => {
-		fetchUser(gitUser);
+		fetchUser(__gitUser);
 	}, [fetchUser]);
 
 	return (

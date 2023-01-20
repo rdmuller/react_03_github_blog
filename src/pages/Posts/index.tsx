@@ -3,6 +3,10 @@ import { PostsContainer, PostsContent } from "./styles";
 import { SearchForm } from "./SearchForm";
 import { Card } from "../../components/Card";
 
+interface Post {
+	id: number;
+}
+
 export function Posts() {
 	return (
 		<div>

@@ -1,1 +1,1 @@
-export const gitUser = "rdmuller";
+export const __gitUser = "rdmuller";
