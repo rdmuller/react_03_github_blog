@@ -1,18 +1,28 @@
 import { CardContainer } from "./styles";
+import { formatDistanceToNow } from "date-fns";
+import { ptBR } from "date-fns/locale";
+import { useNavigate } from "react-router-dom";
 
 interface CardProps {
 	id: number;
 	body: string;
 	title: string;
-	created_at?: string;
+	created_at: string;
 }
 
-export function Card ({id, title, body}:CardProps) {
+export function Card ({id, title, body, created_at}:CardProps) {
+	const createdAtRelativeToNow = formatDistanceToNow(new Date(created_at), {locale: ptBR, addSuffix: true});
+	const navigate = useNavigate();
+
+	function redirectToPost() {
+		navigate(`post/${id}`);
+	}
+
 	return (
-		<CardContainer>
+		<CardContainer onClick={redirectToPost}>
 			<div>
 				<h2>{title}</h2>
-				<span>Há 1 dia</span>
+				<span>{createdAtRelativeToNow}</span>
 			</div>
 			<p>{body}</p>
 		</CardContainer>

@@ -8,8 +8,10 @@ export const CardContainer = styled.div`
     width: 26rem;
     min-height: 16.25rem;
     background-color: ${props => props.theme["base-post"]};
+    border: 2px solid ${props => props.theme["base-post"]};
     border-radius: 10px;
     padding: 32px;
+    cursor: pointer;
 
     :hover {
         border: 2px solid ${props => props.theme["base-label"]};
@@ -17,6 +19,7 @@ export const CardContainer = styled.div`
 
     div {
         display: flex;
+        justify-content: space-between;
         gap: 1rem;
     }
 

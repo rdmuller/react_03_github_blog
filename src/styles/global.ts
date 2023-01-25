@@ -34,7 +34,7 @@ export const GlobalStyle = createGlobalStyle`
         color: ${props => props.theme["base-subtitle"]};
     }
 
-    a {
+    .link {
         font-weight: 700;
         font-size: 0.75rem;
         text-transform: uppercase;
