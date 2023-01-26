@@ -5,16 +5,10 @@ import { Card } from "../../components/Card";
 import { useCallback, useEffect, useState } from "react";
 import { apiGithub } from "../../lib/axios";
 import { __gitUser, __gitRepository } from "../../config";
-
-interface Post {
-	id: number;
-	body: string;
-	title: string;
-	created_at: string;
-}
+import { IssueProps } from "../../lib/GitHubIssue";
 
 interface Posts {
-	items: Post[];
+	items: IssueProps[];
 }
 
 export function Posts() {
@@ -37,7 +31,7 @@ export function Posts() {
 				<PostsContent>
 					{posts?.items.map((post) => {
 						return(
-							<Card key={post.id} id={post.id} title={post.title} body={post.body} created_at={post.created_at} />
+							<Card key={post.id} id={post.id} title={post.title} body={post.body} created_at={post.created_at} number={post.number}  />
 						);
 					})}
 				</PostsContent>

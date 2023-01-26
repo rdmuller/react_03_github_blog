@@ -9,6 +9,7 @@ interface GithubUser {
     bio: string;
     followers: number;
     avatar_url: string;
+	html_url: string;
 }
 
 interface GithubUserContextType {

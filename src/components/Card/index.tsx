@@ -2,20 +2,14 @@ import { CardContainer } from "./styles";
 import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { useNavigate } from "react-router-dom";
+import { IssueProps } from "../../lib/GitHubIssue";
 
-interface CardProps {
-	id: number;
-	body: string;
-	title: string;
-	created_at: string;
-}
-
-export function Card ({id, title, body, created_at}:CardProps) {
-	const createdAtRelativeToNow = formatDistanceToNow(new Date(created_at), {locale: ptBR, addSuffix: true});
+export function Card ({id, title, body, created_at, number}:IssueProps) {
+	const createdAtRelativeToNow = formatDistanceToNow(new Date(created_at ? created_at : new Date().getDate()), {locale: ptBR, addSuffix: true});
 	const navigate = useNavigate();
 
 	function redirectToPost() {
-		navigate(`post/${id}`);
+		navigate(`post/${number}`);
 	}
 
 	return (
