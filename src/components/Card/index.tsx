@@ -4,8 +4,8 @@ import { ptBR } from "date-fns/locale";
 import { useNavigate } from "react-router-dom";
 import { IssueProps } from "../../lib/GitHubIssue";
 
-export function Card ({id, title, body, created_at, number}:IssueProps) {
-	const createdAtRelativeToNow = formatDistanceToNow(new Date(created_at ? created_at : new Date().getDate()), {locale: ptBR, addSuffix: true});
+export function Card ({title, body, created_at, number}:IssueProps) {
+	const createdAtRelativeToNow = formatDistanceToNow(new Date(created_at ? created_at : new Date()), {locale: ptBR, addSuffix: true});
 	const navigate = useNavigate();
 
 	function redirectToPost() {

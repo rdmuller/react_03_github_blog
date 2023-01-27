@@ -8,7 +8,7 @@ import { PostContainer } from "./styles";
 
 export function Post() {
 	const { number } = useParams();
-	const [post, setPost] = useState<IssueProps>();
+	const [post, setPost] = useState<IssueProps>({title:"", number: 0, id: 0, html_url: "", created_at: ""});
 
 	const fetchPost = useCallback(async (userLogin: string, repository: string, number?: string) => {
 		const url = `repos/${userLogin}/${repository}/issues/${number}`;
@@ -23,7 +23,7 @@ export function Post() {
 
 	return (
 		<div>			
-			<PostInfo />
+			<PostInfo title={post.title} html_url={post.html_url} created_at={post.created_at} />
 			<PostContainer>
 				{post?.body}
 			</PostContainer>

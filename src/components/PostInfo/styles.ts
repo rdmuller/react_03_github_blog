@@ -22,6 +22,12 @@ export const LinksContainer = styled.div`
     display: flex;
     justify-content: space-between;
     width: 100%;
+
+    a {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+    }
 `;
 
 export const PostInfoLabelContainer = styled.div`
