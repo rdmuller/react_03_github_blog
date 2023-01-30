@@ -6,13 +6,20 @@ import { ptBR } from "date-fns/locale";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { GithubUserContext } from "../../contexts/GithubUserContext";
-import { IssueProps } from "../../lib/GitHubIssue";
 import { InfoLabel } from "../InfoLabel";
 import { LinksContainer, PostInfoContainer, PostInfoLabelContainer } from "./styles";
 
-export function PostInfo({title, created_at, html_url}: IssueProps) {
+interface PostProps {
+	title: string;
+	created_at: string;
+	html_url: string;
+	comments: number;
+}
+
+export function PostInfo({ title, created_at, html_url, comments }: PostProps) {
 	const { user } = useContext(GithubUserContext);
-	const createdAtrelativeToNow = formatDistanceToNow(new Date(created_at ? created_at : new Date()), {locale: ptBR, addSuffix: true});
+	const createdAtRelativeToNow = formatDistanceToNow(new Date(created_at ? created_at : new Date()), {locale: ptBR, addSuffix: true});
+	const commentsText = comments + (comments > 1 ? " comentários" : " comentário");
 
 	return (
 		<PostInfoContainer>
@@ -23,8 +30,8 @@ export function PostInfo({title, created_at, html_url}: IssueProps) {
 			<h1>{title}</h1>
 			<PostInfoLabelContainer>
 				<InfoLabel iconFont={faGithub} text={user.login} />
-				<InfoLabel iconFont={faCalendarDay} text={createdAtrelativeToNow} />
-				<InfoLabel iconFont={faComment} text="585 comentários" />
+				<InfoLabel iconFont={faCalendarDay} text={createdAtRelativeToNow} />
+				<InfoLabel iconFont={faComment} text={commentsText} />
 			</PostInfoLabelContainer>
 		</PostInfoContainer>
 	);
