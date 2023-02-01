@@ -13,25 +13,37 @@ interface Posts {
 
 export function Posts() {
 	const [posts, setPosts] = useState<Posts>();
+	const [postQty, setPostQty] = useState(0);
+	const [searchText, setSearchText] = useState("");
 
-	const fetchPosts = useCallback(async (userLogin: string, repository: string) => {
-		const response = await apiGithub.get(`search/issues?q= repo:${userLogin}/${repository}`, {});
+	const fetchPosts = useCallback(async (userLogin: string, repository: string, query: string) => {
+		const uri = encodeURI(`search/issues?q=${query} repo:${userLogin}/${repository}`);
+		const response = await apiGithub.get(uri, {});
+		console.log(uri);
 		setPosts(response.data);
 	}, []);
 
 	useEffect(() => {
-		fetchPosts(__gitUser, __gitRepository);
-	}, [fetchPosts]);
+		fetchPosts(__gitUser, __gitRepository, searchText);
+	}, [fetchPosts, searchText]);
+
+	useEffect(() => {
+		if (posts) {
+			setPostQty(posts.items.reduce(
+				(accumulator) => accumulator + 1, 0
+			));
+		}
+	},[posts]);
 
 	return (
 		<div>
 			<GithubInfo />
 			<PostsContainer>
-				<SearchForm />
+				<SearchForm QtyPosts={postQty} setSearchText={setSearchText} />
 				<PostsContent>
 					{posts?.items.map((post) => {
 						return(
-							<Card key={post.id} id={post.id} title={post.title} body={post.body} created_at={post.created_at} number={post.number}  />
+							<Card key={post.id} title={post.title} body={post.body} created_at={post.created_at} number={post.number}  />
 						);
 					})}
 				</PostsContent>

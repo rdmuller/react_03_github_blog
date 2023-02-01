@@ -4,7 +4,14 @@ import { ptBR } from "date-fns/locale";
 import { useNavigate } from "react-router-dom";
 import { IssueProps } from "../../lib/GitHubIssue";
 
-export function Card ({title, body, created_at, number}:IssueProps) {
+interface CardProps {
+	title: string;
+	body: string;
+	created_at: string;
+	number: number;
+}
+
+export function Card ({title, body, created_at, number}:CardProps) {
 	const createdAtRelativeToNow = formatDistanceToNow(new Date(created_at ? created_at : new Date()), {locale: ptBR, addSuffix: true});
 	const navigate = useNavigate();
 
